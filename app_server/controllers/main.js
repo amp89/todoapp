@@ -85,11 +85,11 @@ module.exports.addThings = function(req,res){
   console.log("Add tacos");
   console.log(req.body.itemToAdd);
   var itemToAdd = req.body.itemToAdd;
-  res.redirect("todo");
+  // res.redirect("todo");
   mysql.getConnection(function(err,con){
     con.query('INSERT INTO list (item) VALUES ("'+itemToAdd+'")');
   });
-  res.redirect("todo");
+  res.redirect("/todo");
 };
 
 module.exports.deleteFromToDoList = function(req, res){

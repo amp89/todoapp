@@ -5,8 +5,8 @@ Test data array (rows) from sql:
 
 {{#each sqlArray}}
 
-    <tr>
-      <form action="todoList" name="toDoThing" method="POST">
+<tr>
+      <form action="modify" name="toDoThing" method="POST">
       <td>
         {{this.id}}<input type="hidden" name="id" value={{this.id}} />
       </td>
@@ -20,18 +20,14 @@ Test data array (rows) from sql:
       <td>
         <form action="delete" name="deleteThings" method="POST">
           <input type="hidden" name="idToDelete" value="{{this.id}}" />
-          <button type="submit">Delete</Button
+          <button type="submit">Delete</button>
         </form>
       </td>
     </tr>
-
-
-
+    <br>
 {{/each}}
 
 <br>Add A thing or whatever
-
-
 
 
 

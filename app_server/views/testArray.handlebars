@@ -2,19 +2,22 @@ Test data array (rows) from sql:
 <table>
 
 
-<form action="todoList" method="POST">
+
 {{#each sqlArray}}
 
     <tr>
-      <td>{{this.id}}</td>
-      <td><input type="text" name="item{{this.id}}" value="{{this.item}}" /></td>
+      <form action="todoList" name="toDoThing" method="POST">
+      <td>{{this.id}}<input type="hidden" name="id" value={{this.id}} /></td>
+      <td><input type="text" name="item" value="{{this.item}}" /></td>
+      <td>
+        <button type="submit">change stuff</button>
+        </form>
     </tr>
 
 
 
 {{/each}}
 
-  <button type="submit">change stuff</button>
-  </form>
+
 
 </table>

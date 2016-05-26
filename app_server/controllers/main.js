@@ -67,7 +67,12 @@ module.exports.updateToDoList = function(req, res){
   console.log("UPDATE FORM");
   //req.body has the json thingy
   console.log(req.body);
+  console.log(req.body.id);
+  console.log(req.body.item);
 
+  // mysql.getConnection(function(err,con){
+  //   con.query('INSERT INTO list(item) VALUES() ')
+  // });
 
   res.redirect("todo");
 }

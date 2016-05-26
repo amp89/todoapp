@@ -11,6 +11,11 @@ router.get('/todo/',controller.getAllItems);
 
 router.get('/todo/:number',controller.getItem);
 
+router.post('/addStuff',controller.addThings);
+
 router.post('/todoList',controller.updateToDoList);
+
+router.post('/delete',controller.deleteFromToDoList);
+
 //export router
 module.exports = router;

@@ -68,14 +68,42 @@ module.exports.updateToDoList = function(req, res){
   //req.body has the json thingy
   console.log(req.body);
   console.log(req.body.id);
+  id = req.body.id;
   console.log(req.body.item);
+  newItem = req.body.item;
 
-  // mysql.getConnection(function(err,con){
-  //   con.query('INSERT INTO list(item) VALUES() ')
-  // });
+  mysql.getConnection(function(err,con){
+    con.query('UPDATE list SET item = "'+ newItem +'" WHERE id = ' + id);
+  });
+
 
   res.redirect("todo");
-}
+};
+
+
+module.exports.addThings = function(req,res){
+  console.log("Add tacos");
+  console.log(req.body.itemToAdd);
+  var itemToAdd = req.body.itemToAdd;
+  res.redirect("todo");
+  mysql.getConnection(function(err,con){
+    con.query('INSERT INTO list (item) VALUES ("'+itemToAdd+'")');
+  });
+  res.redirect("todo");
+};
+
+module.exports.deleteFromToDoList = function(req, res){
+  console.log("DELETE FORM");
+  console.log(req.body);
+  console.log(req.body.idToDelete);
+  id = req.body.idToDelete;
+  mysql.getConnection(function(err,con){
+    con.query('DELETE FROM list WHERE id = ' + id);
+  });
+
+    res.redirect("todo");
+};
+
 
 
 //code for a post request

@@ -7,17 +7,39 @@ Test data array (rows) from sql:
 
     <tr>
       <form action="todoList" name="toDoThing" method="POST">
-      <td>{{this.id}}<input type="hidden" name="id" value={{this.id}} /></td>
-      <td><input type="text" name="item" value="{{this.item}}" /></td>
       <td>
-        <button type="submit">change stuff</button>
+        {{this.id}}<input type="hidden" name="id" value={{this.id}} />
+      </td>
+      <td>
+        <input type="text" name="item" value="{{this.item}}" />
+      </td>
+      <td>
+        <button type="submit">Change</button>
         </form>
+      </td>
+      <td>
+        <form action="delete" name="deleteThings" method="POST">
+          <input type="hidden" name="idToDelete" value="{{this.id}}" />
+          <button type="submit">Delete</Button
+        </form>
+      </td>
     </tr>
 
 
 
 {{/each}}
 
+<br>Add A thing or whatever
+
+
+
 
 
 </table>
+
+
+
+<form action="addStuff" name="add" method="POST">
+  <input type="text" name="itemToAdd" />
+  <button type="submit">Add New Thing</button>
+</form>
